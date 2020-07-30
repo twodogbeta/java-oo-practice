@@ -1,11 +1,13 @@
 package com.twu.Interaction;
+
 import com.twu.Entity.User;
 import com.twu.Display.Menu;
 import com.twu.Entity.TopTag;
 import com.twu.Utils.TopSearch;
+
 import java.util.Scanner;
 
-public  class Process {
+public class Process {
     static Scanner sc = null;
 
     public static String getInput() {
@@ -13,7 +15,7 @@ public  class Process {
         return sc.nextLine();
     }
 
-    public static void  topSearchProcess(){
+    public static void topSearchProcess() {
 
         TopSearch topSearchList = new TopSearch();
 
@@ -21,7 +23,6 @@ public  class Process {
         while (true) {
             Menu.mainMenu();
             int c = Integer.parseInt(getInput());
-            String commonUserName = getInput();
             try {
                 switch (c) {
                     case 1:
@@ -38,7 +39,7 @@ public  class Process {
                                 case 2:
                                     System.out.println("请输入您要投的热搜名称：");
                                     String topSearchName = getInput();
-                                    System.out.println("请输入投票数量：  您现在还有："+user.getVotes()+"票");
+                                    System.out.println("请输入投票数量：  您现在还有：" + user.getVotes() + "票");
                                     int topSearchCount = Integer.parseInt(getInput());
                                     if (!user.voteToTopSearch(topSearchCount)) {
                                         System.out.println("投票失败");
@@ -54,7 +55,7 @@ public  class Process {
                                     int topSearchRank = Integer.parseInt(getInput());
                                     System.out.println("请输入您的竞价金额金额：");
                                     double paidPrice = Double.parseDouble(getInput());
-                                    if (paidPrice <=    topSearchList.getTopSearchPrice(buySearchName)) {
+                                    if (paidPrice <= topSearchList.getTopSearchPrice(buySearchName)) {
                                         System.out.println("购买失败");
                                         break;
                                     }
@@ -126,6 +127,6 @@ public  class Process {
             }
         }
     }
-    }
+}
 
 
